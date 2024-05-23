@@ -5,7 +5,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.jupiter.api.Assertions;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import pl.coderslab.pages.*;
@@ -16,14 +15,13 @@ import java.util.List;
 public class AddingAddressFeature {
 
 
-    private final WebDriver driver = Helpers.getDriver();
-    private final StringBuilder stringBuilder = Helpers.getStringbuilder();
+    private WebDriver driver = Helpers.getDriver();
     private List<WebElement> addresses = new ArrayList<>();
 
     @Given("the user is on the authentication page")
     public void theUserIsOnTheAuthenticationPage() {
 
-        HomePage homePage = new HomePage(Helpers.getDriver());
+        HomePage homePage = new HomePage(driver);
         homePage.signInButtonClick();
         AuthPage authPage = new AuthPage(driver);
         authPage.checkIfAuthPageVisible(driver);

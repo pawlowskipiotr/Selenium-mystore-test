@@ -17,7 +17,8 @@ public class AccountPage {
         PageFactory.initElements(driver, this);
     }
 
-    // deklaracja Webelementow - pierwszy występuje gdy nie mamy żadnego adresu przypisanego do konta; drugi gdy posiadamy przynajmniej jeden adres
+    // deklaracja Webelementow - newAddressButton występuje gdy nie mamy żadnego adresu przypisanego do konta;
+    // anotherAddressButton gdy posiadamy przynajmniej jeden adres
     @FindBy(id = "address-link")
     WebElement newAddressButton;
 
@@ -27,6 +28,8 @@ public class AccountPage {
     @FindBy(xpath = "//a[@title='View my customer account']")
     WebElement viewMyCustomerAccount;
 
+    @FindBy(xpath = "//span[contains(text(),'Home')]")
+    WebElement myStoreHomeButtonReturnToHomePage;
 
     // metoda sprawdzająca czy pojawia się button umozliwiajacy tworzenie nowego adresu czy tworzenie kolejnego adresu
 
@@ -48,6 +51,9 @@ public class AccountPage {
             newAddressButton.click();
         }
 
+    }
+    public void returnToHomePage() {
+        myStoreHomeButtonReturnToHomePage.click();
     }
 
 }

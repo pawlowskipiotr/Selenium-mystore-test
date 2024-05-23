@@ -1,25 +1,14 @@
 package pl.coderslab.pages;
-
-import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
-import org.junit.rules.Timeout;
-import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.beans.Visibility;
 import java.time.Duration;
-import java.util.concurrent.locks.Condition;
 
 public class AuthPage {
-
-    private final String myLogin = "sele@wp.pl";
-    private final String myPassword = "12345";
 
     //deklaracja klasy PageFactory
     public AuthPage(WebDriver driver) {
@@ -45,11 +34,13 @@ public class AuthPage {
 
     // wpisanie loginu do formularza logowania
     public void typeEmailIntoEmailInput() {
+        String myLogin = "sele@wp.pl";
         emailAddressInput.sendKeys(myLogin);
     }
 
     // wpisanie hasła do formularza logowania
     public void typePasswordIntoPasswordInput() {
+        String myPassword = "12345";
         passwordInput.sendKeys(myPassword);
     }
 

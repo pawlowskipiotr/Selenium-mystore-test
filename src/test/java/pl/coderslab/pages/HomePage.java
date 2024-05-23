@@ -8,7 +8,10 @@ import org.openqa.selenium.support.PageFactory;
 public class HomePage {
 
     @FindBy(xpath = "//a[@title='Log in to your customer account']")
-    private WebElement signInButton;
+    WebElement signInButton;
+
+    @FindBy(xpath = "//a[contains(text(),'sweater')]")
+    WebElement selectedProduct;
 
     public HomePage(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -17,4 +20,9 @@ public class HomePage {
     public void signInButtonClick() {
         signInButton.click();
     }
+
+    public void selectedProductClick() {
+        selectedProduct.click();
+    }
+
 }

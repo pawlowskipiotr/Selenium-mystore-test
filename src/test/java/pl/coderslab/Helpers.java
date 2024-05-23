@@ -1,12 +1,19 @@
 package pl.coderslab;
 
+import io.cucumber.java.After;
 import io.cucumber.java.AfterAll;
+import io.cucumber.java.Before;
 import io.cucumber.java.BeforeAll;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 
 public class Helpers {
+
+
     private static final String webURL = "https://mystore-testlab.coderslab.pl/";
 
     private static WebDriver driver;
@@ -34,19 +41,19 @@ public class Helpers {
         stringbuilder.append(phone).append("\n");
     }
 
-
-    @BeforeAll
+    @Before
     public static void openBrowser() {
         driver = new FirefoxDriver();
         driver.manage().window().maximize();
         driver.get(webURL);
     }
 
-    @AfterAll
+    @After
     public static void closeBrowser() {
         if (driver != null) {
             driver.quit();
         }
     }
+
 
 }
