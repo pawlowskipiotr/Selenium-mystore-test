@@ -6,10 +6,9 @@ Feature: Buying a product and finalizing transaction
 
   Scenario: Buying a product
     Given the user is on Home Page while he is logged
-    And the user chooses a product
-  #And the user chooses size and quantity of a product
-    #And the user places it in the cart
-    #And the user chooses delivery address and payment method
-    #When the user places the order
-    #Then the confirmation of transaction is visible
+    And the user chooses a product, size and quantity
+    And the user places it in the cart
+    And the user chooses delivery address and payment method
+    When the user places the order
+    Then the confirmation of transaction is visible
     #And screenshot of confirmation and price is taken

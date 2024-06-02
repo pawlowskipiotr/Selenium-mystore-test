@@ -1,14 +1,10 @@
 package pl.coderslab;
 
 import io.cucumber.java.After;
-import io.cucumber.java.AfterAll;
 import io.cucumber.java.Before;
-import io.cucumber.java.BeforeAll;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
 
 public class Helpers {
@@ -41,6 +37,24 @@ public class Helpers {
         stringbuilder.append(phone).append("\n");
     }
 
+    public static boolean checkIfElementClickable(WebElement webElement) {
+        return webElement.isEnabled();
+    }
+
+
+    //metoda pobierająca liczbę z WebElementu
+
+    public static String getNumberFromWebElement(WebElement webElement){
+        String result;
+        String element = webElement.getText();
+        result = element.replaceAll("[^\\d.]", "");
+
+        return result;
+    }
+
+
+
+    //---------------------- metody wywoływane przed i po każdym scenariuszu
     @Before
     public static void openBrowser() {
         driver = new FirefoxDriver();
@@ -54,6 +68,5 @@ public class Helpers {
             driver.quit();
         }
     }
-
-
+//---------------------- koniec metod wywoływanych przed i po każdym scenariuszu
 }

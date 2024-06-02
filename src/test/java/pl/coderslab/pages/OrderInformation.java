@@ -1,0 +1,63 @@
+package pl.coderslab.pages;
+
+import org.apache.commons.io.FileUtils;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Order;
+import org.openqa.selenium.*;
+import org.openqa.selenium.Rectangle;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import pl.coderslab.Helpers;
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.Dimension;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
+import java.util.List;
+
+import java.awt.AWTException;
+import java.awt.Dimension;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+
+
+public class OrderInformation {
+
+    public OrderInformation(WebDriver driver) {
+        PageFactory.initElements(Helpers.getDriver(), this);
+    }
+
+    @FindBy(xpath = "//*[contains(text(),'Your order on mystore-testlab.coderslab.pl is complete.')]")
+    WebElement OrderConfirmedMessage;
+
+    public void confirmationOfOrderMessage() {
+        Assertions.assertEquals("Your order on mystore-testlab.coderslab.pl is complete.", OrderConfirmedMessage.getText());
+    }
+
+    public void takingScreenshotOfOrderAndPrice() {
+        File screenshot = ((TakesScreenshot) Helpers.getDriver()).getScreenshotAs(OutputType.FILE);
+        String myStoreProjectPath = System.getProperty("user.dir");
+        File screenshotSaveDestination = new File(myStoreProjectPath, "screenshot.png");
+
+        try {
+            Files.copy(screenshot.toPath(), screenshotSaveDestination.toPath(), StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+}

@@ -4,8 +4,17 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import pl.coderslab.Helpers;
+
+import java.sql.Time;
+import java.time.Duration;
 
 public class HomePage {
+    public HomePage(WebDriver driver) {
+        PageFactory.initElements(driver, this);
+    }
 
     @FindBy(xpath = "//a[@title='Log in to your customer account']")
     WebElement signInButton;
@@ -13,11 +22,10 @@ public class HomePage {
     @FindBy(xpath = "//a[contains(text(),'sweater')]")
     WebElement selectedProduct;
 
-    public HomePage(WebDriver driver) {
-        PageFactory.initElements(driver, this);
-    }
 
     public void signInButtonClick() {
+        WebDriverWait wait = new WebDriverWait(Helpers.getDriver(), Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(signInButton));
         signInButton.click();
     }
 
