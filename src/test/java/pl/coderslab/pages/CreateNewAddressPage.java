@@ -1,10 +1,15 @@
 package pl.coderslab.pages;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pl.coderslab.Helpers;
+
+import java.time.Duration;
 
 public class CreateNewAddressPage {
 
@@ -43,6 +48,8 @@ public class CreateNewAddressPage {
     WebElement saveNewAddressButton;
 
     public void fillAlias(String alias) {
+        WebDriverWait webDriverWait = new WebDriverWait(Helpers.getDriver(), Duration.ofSeconds(10));
+        webDriverWait.until(ExpectedConditions.visibilityOf(aliasInput));
         aliasInput.sendKeys(alias);
     }
 

@@ -73,6 +73,11 @@ public class BuyingProduct {
     public void theConfirmationOfTransactionIsVisible() {
         OrderInformation orderInformation = new OrderInformation(Helpers.getDriver());
         orderInformation.confirmationOfOrderMessage();
+    }
+
+    @And("screenshot of confirmation and price is taken")
+    public void screenshotOfConfirmationAndPriceIsTaken() {
+        OrderInformation orderInformation = new OrderInformation(Helpers.getDriver());
         orderInformation.takingScreenshotOfOrderAndPrice();
     }
 }

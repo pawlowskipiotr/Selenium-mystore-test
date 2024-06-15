@@ -43,7 +43,6 @@ public class AddingAddressFeature {
         myAddressesPage.createNewAddressButtonClick();
     }
 
-
     @And("the user fills {string}, {string}, {string}, {string}, {string}, {string}")
     public void theUserFills(String alias, String address, String city, String postalcode, String country, String phone) {
         CreateNewAddressPage createNewAddressPage = new CreateNewAddressPage();
@@ -58,7 +57,6 @@ public class AddingAddressFeature {
 
         //tworzenie ciągu znaków nowego adresu do asercji
         Helpers.shouldMakeStringToAssertAddress(alias, createNewAddressPage.returnFirstAndLastName(), address, city, postalcode, createNewAddressPage.returnCountry(), phone);
-
     }
 
     @And("the user clicks save new address button")

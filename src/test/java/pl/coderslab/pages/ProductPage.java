@@ -1,19 +1,13 @@
 package pl.coderslab.pages;
-
-import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.http.Message;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pl.coderslab.Helpers;
-
 import java.time.Duration;
 
 
@@ -51,6 +45,11 @@ public class ProductPage {
     public void chooseQuantityOfProduct(int quantity) {
 
         for (int i = 0; i < quantity-1; i++) {
+            try {
+                Thread.sleep(250);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             changeQuantityButtonUp.click();
         }
     }

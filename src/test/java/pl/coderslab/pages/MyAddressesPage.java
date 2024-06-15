@@ -1,11 +1,16 @@
 package pl.coderslab.pages;
+
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pl.coderslab.Helpers;
+
+import java.time.Duration;
 import java.util.List;
 
 public class MyAddressesPage {
@@ -24,6 +29,10 @@ public class MyAddressesPage {
     }
 
     public void createNewAddressButtonClick() {
+
+        WebDriverWait webDriverWait = new WebDriverWait(Helpers.getDriver(), Duration.ofSeconds(10));
+        webDriverWait.until(ExpectedConditions.visibilityOf(createNewAddressButton));
+
         createNewAddressButton.click();
     }
 

@@ -11,4 +11,4 @@ Feature: Buying a product and finalizing transaction
     And the user chooses delivery address and payment method
     When the user places the order
     Then the confirmation of transaction is visible
-    #And screenshot of confirmation and price is taken
+    And screenshot of confirmation and price is taken

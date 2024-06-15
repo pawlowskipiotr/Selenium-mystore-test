@@ -7,8 +7,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pl.coderslab.Helpers;
-
-import java.sql.Time;
 import java.time.Duration;
 
 public class HomePage {
